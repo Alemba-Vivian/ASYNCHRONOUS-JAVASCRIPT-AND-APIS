@@ -20,36 +20,27 @@ window.addEventListener('DOMContentLoaded', ()=>{
     // fullName("Vivian", "Alemba", greeting)
 
 
-    function publish(item, author, callback){   // Generic function with common data
-        console.log(item);
-        var date = new Date();
+    // function publish(item, author, callback){   // Generic function with common data
+    //     console.log(item);
+    //     var date = new Date();
       
-        callback(author, date);
-    }
+    //     callback(author, date);
+    // }
       
-    function messages(author, time){   // Callback function with specific data
-        var sendTime = time.toLocaleTimeString();
-        console.log("Sent from " + author + " at " + sendTime);
-      }
+    // function messages(author, time){   // Callback function with specific data
+    //     var sendTime = time.toLocaleTimeString();
+    //     console.log("Sent from " + author + " at " + sendTime);
+    //   }
       
-    function articles(author, date){   // Callback function with specific data
-        var pubDate = date.toDateString();
-        console.log("Written by " + author);
-        console.log("Published " + pubDate);
-    }
+    // function articles(author, date){   // Callback function with specific data
+    //     var pubDate = date.toDateString();
+    //     console.log("Written by " + author);
+    //     console.log("Published " + pubDate);
+    // }
       
-      publish("How are you?", "Monique", messages);
+    //   publish("How are you?", "Monique", messages);
       
-      publish("10 Tips for JavaScript Developers", "Jane Doe", articles);
-
-
-
-
-
-
-
-
-
+    //   publish("10 Tips for JavaScript Developers", "Jane Doe", articles);
 
 
 
@@ -138,9 +129,56 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
 
 
+    // 'use strict'
+
+    // let myPromise = new Promise((resolve, reject)=>{
+    //   setTimeout(()=>{
+    //     resolve("Good to Go!!");
+    //   }, 1000);
+      
+    // });
+
+   
+
+    // let myPromise2 = new Promise((resolve, reject)=>{
+
+    //   setTimeout(()=>{
+    //      reject("promise 2- yeah you said");
+    //   }, 1500);
+
+    // })
+
+    // Promise.all([
+    //   myPromise, myPromise2
+    // ]).then(results=>{
+    //   console.log(results);
+    // }).catch((error)=>{
+    //   console.log(error);
+    // });
 
 
+    const generateJokes = document.getElementById('btn-generate-jokes');
+    const results = document.getElementById('results');
+   
+    generateJokes.addEventListener('click', fetchAPI);
 
+    // FETCH API
+    'use strict'
+
+    function fetchAPI(){
+      fetch('https://api.chucknorris.io/jokes/random')
+      .then((res)=>{
+          res.json()
+
+       .then((data)=>{
+            results.textContent =data.value;
+          // document.getElementById('image').src=data.icon_url;
+              console.log(data);
+        })   
+      }).catch((error)=>{
+         console.log(error);
+      })
+    }
 
 
 });
