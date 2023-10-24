@@ -29,10 +29,7 @@
   fetchGiph();
 
  
-  function searchGiph(){
-    fetch("https://api.giphy.com/v1/gifs/search?api_key=1TodTFKhH45JkANA4LhqWK1urxexTTGu&q=cats")
 
-  }
 
 
 
